@@ -4,11 +4,11 @@ return {
 		lazy = false,
 		priority = 1000,
 		-- opts = {
-		--   transparent = true,
-		--   styles = {
-		--     sidebars = "transparent",
-		--     floats = "transparent",
-		--   },
+		-- 	transparent = true,
+		-- 	styles = {
+		-- 		sidebars = "transparent",
+		-- 		floats = "transparent",
+		-- 	},
 		-- },
 		config = function()
 			vim.cmd([[colorscheme tokyonight-moon]])
@@ -20,7 +20,7 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "moonfly",
+					theme = "palenight",
 				},
 			})
 		end,
@@ -65,18 +65,6 @@ return {
 			require("config.which-key")
 		end,
 	},
-	-- {
-	-- 	"nvim-tree/nvim-tree.lua",
-	-- 	version = "*",
-	-- 	cmd = "NvimTreeToggle",
-	-- 	lazy = true,
-	-- 	dependencies = {
-	-- 		"nvim-tree/nvim-web-devicons",
-	-- 	},
-	-- 	config = function()
-	-- 		require("nvim-tree").setup({})
-	-- 	end,
-	-- },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		version = "v3.x",
@@ -436,10 +424,10 @@ return {
 		"akinsho/toggleterm.nvim",
 		version = "*",
 		config = true,
-		keys = "<F7>",
+		keys = "<F12>",
 		opts = {
 			size = 10,
-			open_mapping = [[<F7>]],
+			open_mapping = [[<F12>]],
 			shading_factor = 2,
 			direction = "float",
 			float_opts = {

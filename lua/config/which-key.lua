@@ -1,9 +1,7 @@
 local wk = require("which-key")
 
 wk.add({
-	{ "<F5>", "<cmd>UndotreeToggle<cr>", desc = "open UndoTree", mode = "n" },
-	{ "<F12>", "<cmd>NvimTreeToggle<cr>", desc = "open File Tree", mode = "n" },
-
+	{ "<F11>", "<cmd>UndotreeToggle<cr>", desc = "open UndoTree", mode = "n" },
 	{ "<leader>c", group = "Code Actions" },
 	{ "<leader>x", group = "Trouble List" },
 	{ "<leader>h", group = "gitsigns Key" },
