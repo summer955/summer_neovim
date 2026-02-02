@@ -39,7 +39,16 @@ require("lazy").setup({
 	-- colorscheme that will be used when installing plugins.
 	install = { colorscheme = { "tokyonight", "habamax" } },
 	-- automatically check for plugin updates
-	checker = { enabled = true },
+	-- {
+	-- Lazy.nvim 配置
+	checker = {
+		enabled = true,
+		notify = false,
+		frequency = 86400,
+	},
+	git = {
+		timeout = 300,
+	},
 	performance = {
 		rtp = {
 			-- disable some rtp plugins

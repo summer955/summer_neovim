@@ -294,25 +294,24 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = "williamboman/mason.nvim",
 		lazy = true,
-		event = "LspAttach",
+		-- event = "LspAttach",
+		event = "VeryLazy",
 		config = function()
+			vim.diagnostic.config({
+				virtual_text = {
+					prefix = "●",
+					format = function(d)
+						return d.message
+					end,
+				},
+				signs = true,
+				underline = true,
+				update_in_insert = false,
+			})
+
 			require("config.lsp")
 		end,
 	},
-
-	-- Mason DAP 桥接
-	-- {
-	--   "jay-babu/mason-nvim-dap.nvim",
-	--   dependencies = "williamboman/mason.nvim",
-	--   config = function()
-	--     require("mason-nvim-dap").setup({
-	--       ensure_installed = { "codelldb", "python" },
-	--     })
-	--   end,
-	-- -- },
-
-	-- LSP 配置
-
 	{
 		"neovim/nvim-lspconfig",
 		lazy = true,
@@ -322,23 +321,6 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 		},
-		config = function()
-			vim.diagnostic.config({
-				-- 虚拟文本（行内错误显示）
-				virtual_text = {
-					enabled = true, -- 启用行内错误提示
-					prefix = "●", -- 错误前缀符号
-					format = function(diagnostic)
-						return diagnostic.message -- 显示错误信息
-					end,
-				},
-
-				-- 其他诊断显示
-				signs = true, -- 侧边栏错误标记 ✓
-				underline = true, -- 错误处下划线
-				update_in_insert = false, -- 不在插入模式更新
-			})
-		end,
 	},
 
 	-- 代码片段引擎
