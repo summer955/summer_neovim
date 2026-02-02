@@ -293,8 +293,6 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = "williamboman/mason.nvim",
-		lazy = true,
-		-- event = "LspAttach",
 		event = "VeryLazy",
 		config = function()
 			vim.diagnostic.config({
@@ -314,7 +312,6 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		lazy = true,
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"williamboman/mason.nvim",
