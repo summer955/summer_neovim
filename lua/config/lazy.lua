@@ -40,7 +40,7 @@ require("lazy").setup({
 	install = { colorscheme = { "tokyonight", "habamax" } },
 	-- automatically check for plugin updates
 	-- {
-	-- Lazy.nvim 配置
+	-- Lazy.nvim
 	checker = {
 		enabled = true,
 		notify = false,

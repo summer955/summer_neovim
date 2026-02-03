@@ -267,6 +267,8 @@ return {
 		"mfussenegger/nvim-lint",
 		event = { "BufWritePost", "BufReadPost", "InsertLeave" },
 		config = function()
+			local os = require("os")
+
 			require("lint").linters_by_ft = {
 				python = { "ruff" },
 				lua = { "selene" },
@@ -292,7 +294,10 @@ return {
 	-- Mason LSP 桥接
 	{
 		"williamboman/mason-lspconfig.nvim",
-		dependencies = "williamboman/mason.nvim",
+		dependencies = {
+			{ "mason-org/mason.nvim" },
+			"neovim/nvim-lspconfig",
+		},
 		event = "VeryLazy",
 		config = function()
 			vim.diagnostic.config({
@@ -767,5 +772,25 @@ return {
 				desc = "Clear results",
 			},
 		},
+	},
+	{
+		"danymat/neogen",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"L3MON4D3/LuaSnip",
+		},
+		keys = {
+			{
+				"<leader>cg",
+				function()
+					require("neogen").generate()
+				end,
+				desc = "Generate code annotations",
+			},
+		},
+		opts = {
+			snippet_engine = "luasnip",
+		},
+		config = true,
 	},
 }
