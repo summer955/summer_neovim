@@ -6,7 +6,7 @@ return {
 		require("harpoon").setup({})
 	end,
 	keys = {
-		{ "<leader>q", desc = "select harpoon keys" },
+		{ "<leader>q", desc = "Select Harpoon Keys" },
 		{
 			"<leader>qa",
 			function()

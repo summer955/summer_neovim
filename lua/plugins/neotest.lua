@@ -28,7 +28,7 @@ return {
 			})
 		end,
 		keys = {
-			{ "<leader>t", "", desc = "+test" },
+			{ "<leader>t", "", desc = "Code Test" },
 			{
 				"<leader>ta",
 				function()

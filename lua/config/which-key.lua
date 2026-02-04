@@ -2,6 +2,7 @@ local wk = require("which-key")
 
 wk.add({
 	{ "<F11>", "<cmd>UndotreeToggle<cr>", desc = "open UndoTree", mode = "n" },
+	{ "<leader><leader>", group = "<leader> Extension" },
 	{ "<leader>c", group = "Code Actions" },
 	{ "<leader>x", group = "Trouble List" },
 	{ "<leader>h", group = "gitsigns Key" },
@@ -9,7 +10,9 @@ wk.add({
 	{ "<leader>g", group = "Git" },
 	{ "<leader>s", group = "System and History Search" },
 	{ "<leader>u", group = "Feature Toggle" },
-	{ "<leader>d", group = "nvim-Dap keys" },
+	{ "<leader>d", group = "Code Dap keys" },
+	{ "<leader>r", group = "Run code" },
+	{ "<leader>e", group = "Open File Explorer" },
 	{
 		"<leader>cf",
 		function()
