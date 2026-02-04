@@ -1,5 +1,9 @@
 require("mason-lspconfig").setup({
-	automatic_enable = true,
+	automatic_enable = {
+		exclude = {
+			"ruff",
+		},
+	},
 })
 
 vim.lsp.config("lua_ls", {
