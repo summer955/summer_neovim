@@ -21,3 +21,5 @@ vim.lsp.config("clangd", {
 		"--completion-style=detailed",
 	},
 })
+
+vim.lsp.config("jdtls", { cmd = { "jdtls" } })
