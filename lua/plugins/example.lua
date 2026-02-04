@@ -300,18 +300,18 @@ return {
 		},
 		event = "VeryLazy",
 		config = function()
-			vim.diagnostic.config({
-				virtual_text = {
-					prefix = "●",
-					format = function(d)
-						return d.message
-					end,
-				},
-				signs = true,
-				underline = true,
-				update_in_insert = false,
-			})
-
+			-- vim.diagnostic.config({
+			-- 	virtual_text = {
+			-- 		prefix = "●",
+			-- 		format = function(d)
+			-- 			return d.message
+			-- 		end,
+			-- 	},
+			-- 	signs = true,
+			-- 	underline = true,
+			-- 	update_in_insert = false,
+			-- })
+			require("config.diagnostic")
 			require("config.lsp")
 		end,
 	},
