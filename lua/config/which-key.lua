@@ -21,6 +21,13 @@ wk.add({
 		desc = "Format Current File",
 		mode = "n",
 	},
+	{
+		"<leader>?",
+		function()
+			require("which-key").show({ global = false })
+		end,
+		desc = "Buffer Local Keymaps (which-key)",
+	},
 	{ "<leader>ci", "<cmd>IBLToggle<cr>", desc = "Turn on code alignment guides", mode = "n" },
 	{ "<leader>cn", "<cmd>set number!<cr>", desc = "Toggle line numbers", mode = "n" },
 })

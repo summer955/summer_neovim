@@ -21,6 +21,13 @@ return {
 			require("lualine").setup({
 				options = {
 					theme = "palenight",
+					globalstatus = vim.o.laststatus == 3,
+					disabled_filetypes = {
+						statusline = {
+							"dashboard",
+							"snacks_dashboard",
+						},
+					},
 				},
 			})
 		end,
@@ -52,15 +59,6 @@ return {
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
-		keys = {
-			{
-				"<leader>?",
-				function()
-					require("which-key").show({ global = false })
-				end,
-				desc = "Buffer Local Keymaps (which-key)",
-			},
-		},
 		config = function()
 			require("config.which-key")
 		end,
@@ -562,11 +560,6 @@ return {
 	{
 		"sindrets/diffview.nvim",
 		event = { "BufRead", "BufNewFile" },
-	},
-	{
-		"nvim-zh/colorful-winsep.nvim",
-		config = true,
-		event = { "WinNew" },
 	},
 	{
 		"echasnovski/mini.cursorword",
