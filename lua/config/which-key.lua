@@ -13,6 +13,7 @@ wk.add({
 	{ "<leader>d", group = "Code Dap keys" },
 	{ "<leader>r", group = "Run code" },
 	{ "<leader>e", group = "Open File Explorer" },
+	{ "<leader>f", group = "Telescope Pickers" },
 	{
 		"<leader>?",
 		function()

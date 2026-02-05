@@ -46,7 +46,6 @@ return {
 			require("telescope").load_extension("frecency")
 		end,
 		keys = {
-			{ "<leader>f", desc = "Select Telescope keys" },
 			{
 				"<leader>fq",
 				function()

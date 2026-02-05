@@ -263,7 +263,7 @@ return {
 	},
 	{
 		"mfussenegger/nvim-lint",
-		event = { "BufWritePost", "BufReadPost", "InsertLeave" },
+		events = { "BufWritePost", "BufReadPost", "InsertLeave" },
 		config = function()
 			local os = require("os")
 
@@ -281,11 +281,14 @@ return {
 				os.getenv("HOME") .. "/.config/selene-ignore.toml",
 			}
 
-			vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
-				callback = function()
-					require("lint").try_lint()
-				end,
-			})
+			vim.api.nvim_create_autocmd(
+				{ "BufWritePost", "BufReadPost", "InsertLeave", "TextChanged", "TextChangedI" },
+				{
+					callback = function()
+						require("lint").try_lint()
+					end,
+				}
+			)
 		end,
 	},
 
@@ -357,6 +360,18 @@ return {
 	{
 		"HiPhish/rainbow-delimiters.nvim",
 		event = { "BufRead", "BufNewFile" },
+	},
+	{
+		"linux-cultist/venv-selector.nvim",
+		cmd = "VenvSelect",
+		opts = {
+			options = {
+				notify_user_on_venv_activation = true,
+			},
+		},
+		--  Call config for Python files and load the cached venv automatically
+		ft = "python",
+		keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv", ft = "python" } },
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -739,7 +754,7 @@ return {
 					terminal_signcolumn = false, -- whether show signcolumn in terminal window
 					terminal_position = "horizontal", --# or "horizontal", to open as horizontal split instead of vertical split
 					-- terminal_width = 45, --# change the terminal display option width (if vertical)
-					terminal_height = 10, --# change the terminal display option height (if horizontal)
+					terminal_height = 8, --# change the terminal display option height (if horizontal)
 				},
 			})
 		end,
