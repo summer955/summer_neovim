@@ -3,15 +3,15 @@ return {
 	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
 	lazy = true,
-	-- keys = {
-	-- 	{
-	-- 		"<leader>cf",
-	-- 		function()
-	-- 			require("conform").format({ async = true, lsp_fallback = true })
-	-- 		end,
-	-- 		desc = "Format buffer",
-	-- 	},
-	-- },
+	keys = {
+		{
+			"<leader>cf",
+			function()
+				require("conform").format({ async = true, lsp_fallback = true })
+			end,
+			desc = "Format buffer",
+		},
+	},
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },

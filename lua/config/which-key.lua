@@ -14,14 +14,6 @@ wk.add({
 	{ "<leader>r", group = "Run code" },
 	{ "<leader>e", group = "Open File Explorer" },
 	{
-		"<leader>cf",
-		function()
-			require("conform").format({ async = true, lsp_fallback = true })
-		end,
-		desc = "Format Current File",
-		mode = "n",
-	},
-	{
 		"<leader>?",
 		function()
 			require("which-key").show({ global = false })
