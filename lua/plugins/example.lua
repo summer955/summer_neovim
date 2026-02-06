@@ -760,11 +760,11 @@ return {
 			})
 		end,
 		keys = {
-			{ "<leader>r", ":'<,'>SnipRun<CR>", mode = "v", desc = "Run selection" },
+			{ "<leader>R", ":'<,'>SnipRun<CR>", mode = "v", desc = "Run selection" },
 			{ "<leader>rr", ":%SnipRun<CR>", mode = "n", desc = "Run file" },
 			-- 清除结果
 			{
-				"<leader>rc",
+				"<leader>re",
 				":SnipClose<CR>",
 				mode = "n",
 				desc = "Clear results",

@@ -11,7 +11,7 @@ wk.add({
 	{ "<leader>s", group = "System and History Search" },
 	{ "<leader>u", group = "Feature Toggle" },
 	{ "<leader>d", group = "Code Dap keys" },
-	{ "<leader>r", group = "Run code" },
+	{ "<leader>r", group = "Run or Refactor Code" },
 	{ "<leader>e", group = "Open File Explorer" },
 	{ "<leader>f", group = "Telescope Pickers" },
 	{

@@ -15,8 +15,8 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "ruff" },
-			javascript = { "prettier" },
+			python = { "ruff_format" },
+			-- javascript = { "prettier" },
 			c = { "clang_format" },
 			cpp = { "clang_format" },
 			java = { "google-java-format" },
