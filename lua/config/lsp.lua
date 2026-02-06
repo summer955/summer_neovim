@@ -6,6 +6,7 @@ require("mason-lspconfig").setup({
 	},
 })
 
+-- lua
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
@@ -16,6 +17,7 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
+-- c,c++
 vim.lsp.config("clangd", {
 	cmd = {
 		"clangd",
@@ -26,4 +28,19 @@ vim.lsp.config("clangd", {
 	},
 })
 
+--java
+
 vim.lsp.config("jdtls", { cmd = { "jdtls" } })
+
+--python
+vim.lsp.config("pyright", {
+	settings = {
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				diagnosticMode = "openFilesOnly",
+				useLibraryCodeForTypes = true,
+			},
+		},
+	},
+})

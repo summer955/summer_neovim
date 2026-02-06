@@ -263,7 +263,8 @@ return {
 	},
 	{
 		"mfussenegger/nvim-lint",
-		events = { "BufWritePost", "BufReadPost", "InsertLeave" },
+		event = "VeryLazy",
+		-- events = { "BufWritePost", "BufReadPost", "InsertLeave" },
 		config = function()
 			local os = require("os")
 
