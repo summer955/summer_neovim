@@ -26,33 +26,47 @@ g.loaded_2html_plugin = 1 -- 禁用 2html
 g.loaded_tutor_mode_plugin = 1 -- 禁用 tutor
 g.loaded_rrhelper = 1 -- 禁用 rrhelper
 
--- vim.opt.fillchars = {
--- 	horiz = "─",
--- 	horizup = "┴",
--- 	horizdown = "┬",
--- 	vert = "│",
--- 	vertleft = "┤",
--- 	vertright = "├",
--- 	verthoriz = "┼",
--- }
 vim.opt.fillchars = {
-	horiz = "━", -- 粗水平线
-	horizup = "┻", -- 粗上T型
-	horizdown = "┳", -- 粗下T型
-	vert = "┃", -- 粗垂直线
-	vertleft = "┫", -- 粗左T型
-	vertright = "┣", -- 粗右T型
-	verthoriz = "╋", -- 粗十字
-	eob = " ", -- 隐藏波浪线
+	horiz = "─",
+	horizup = "┴",
+	horizdown = "┬",
+	vert = "│",
+	vertleft = "┤",
+	vertright = "├",
+	verthoriz = "┼",
 }
+-- vim.opt.fillchars = {
+-- 	horiz = "━", -- 粗水平线
+-- 	horizup = "┻", -- 粗上T型
+-- 	horizdown = "┳", -- 粗下T型
+-- 	vert = "┃", -- 粗垂直线
+-- 	vertleft = "┫", -- 粗左T型
+-- 	vertright = "┣", -- 粗右T型
+-- 	verthoriz = "╋", -- 粗十字
+-- 	eob = " ", -- 隐藏波浪线
+-- }
 
 -- 根据主题自动调整
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.api.nvim_set_hl(0, "WinSeparator", {
+-- 			fg = vim.api.nvim_get_hl_by_name("Comment", true).foreground or "#5c6370",
+-- 			bg = "NONE",
+-- 		})
+-- 	end,
+-- })
+
+--深灰色分割线
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "*",
 	callback = function()
-		vim.api.nvim_set_hl(0, "WinSeparator", {
-			fg = vim.api.nvim_get_hl_by_name("Comment", true).foreground or "#5c6370",
-			bg = "NONE",
-		})
+		-- 延迟执行，确保主题完全加载
+		vim.defer_fn(function()
+			vim.api.nvim_set_hl(0, "WinSeparator", {
+				fg = "#4d4d4d", -- 浅灰色
+				bg = "NONE",
+			})
+		end, 50) -- 50ms 延迟
 	end,
 })

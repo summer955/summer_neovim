@@ -16,11 +16,13 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "ruff_format" },
-			-- javascript = { "prettier" },
 			c = { "clang_format" },
 			cpp = { "clang_format" },
 			java = { "google-java-format" },
 			sh = { "shfmt" },
+			yaml = { "yamlfmt" },
+			yml = { "yamlfmt" },
+			dockercompose = { "yamlfmt" },
 		},
 		format_on_save = { timeout_ms = 500, lsp_fallback = true },
 		formatters = {

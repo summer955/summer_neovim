@@ -220,9 +220,9 @@ return {
 				"lua-language-server", -- lua_ls
 				"clangd", -- cpp
 				"pyright", --python
-				-- 请运行 "apt install openjdk-17-jdk"
+				-- 请运行 "apt install openjdk-21-jdk"
 				"jdtls", -- java
-				-- "java_language_server",
+				"yaml-language-server", --yaml
 
 				-- Formatter
 				"stylua", -- lua
@@ -230,11 +230,13 @@ return {
 				"clang-format", -- cpp
 				"google-java-format", --java
 				"shfmt", -- shell
+				"yamlfmt", --yaml
 
 				-- Linter
 				"flake8", -- python
 				"selene", -- lua
 				"cpplint", -- cpp
+				"yamllint", --yaml
 			},
 		},
 		---@param opts MasonSettings | {ensure_installed: string[]}
@@ -273,6 +275,10 @@ return {
 				lua = { "selene" },
 				cpp = { "cpplint" },
 				c = { "cpplint" },
+				--yaml
+				yaml = { "yamllint" },
+				yml = { "yamllint" },
+				dockercompose = { "yamllint" },
 			}
 
 			require("lint").linters.selene.args = {

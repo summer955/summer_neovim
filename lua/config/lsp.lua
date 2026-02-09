@@ -44,3 +44,19 @@ vim.lsp.config("pyright", {
 		},
 	},
 })
+
+vim.lsp.config("yamlls", {
+	settings = {
+		yaml = {
+			schemaStore = { enable = true },
+			schemas = {
+				["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+				["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.29.1-standalone-strict/all.json"] = {
+					"**/k8s/*.yaml", -- 匹配 /any/path/k8s/foo.yaml
+					"**/k8s/*.yml",
+					"*.k8s.yaml", -- 匹配根目录下的 *.k8s.yaml
+				},
+			},
+		},
+	},
+})
