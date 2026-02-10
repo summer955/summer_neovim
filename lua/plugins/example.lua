@@ -18,18 +18,7 @@ return {
 		"nvim-lualine/lualine.nvim",
 		event = { "BufRead", "BufNewFile" },
 		config = function()
-			require("lualine").setup({
-				options = {
-					theme = "palenight",
-					globalstatus = vim.o.laststatus == 3,
-					disabled_filetypes = {
-						statusline = {
-							"dashboard",
-							"snacks_dashboard",
-						},
-					},
-				},
-			})
+			require("config.lualine")
 		end,
 	},
 	{
