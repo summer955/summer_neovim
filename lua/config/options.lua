@@ -1,6 +1,5 @@
 local opt = vim.opt
 local g = vim.g
-local wo = vim.wo
 
 -- 缩进与制表符设置
 opt.tabstop = 4
@@ -17,6 +16,11 @@ opt.undofile = true -- 启用撤销持久化
 
 -- 真彩色
 opt.termguicolors = true
+
+-- 禁用nvim的默认状态栏，使用lualine
+vim.opt.laststatus = 0
+vim.opt.ruler = false
+vim.opt.showmode = false
 
 -- 禁用自带的文件树
 -- g.loaded_netrw = 1
@@ -35,16 +39,6 @@ vim.opt.fillchars = {
 	vertright = "├",
 	verthoriz = "┼",
 }
--- vim.opt.fillchars = {
--- 	horiz = "━", -- 粗水平线
--- 	horizup = "┻", -- 粗上T型
--- 	horizdown = "┳", -- 粗下T型
--- 	vert = "┃", -- 粗垂直线
--- 	vertleft = "┫", -- 粗左T型
--- 	vertright = "┣", -- 粗右T型
--- 	verthoriz = "╋", -- 粗十字
--- 	eob = " ", -- 隐藏波浪线
--- }
 
 -- 根据主题自动调整
 -- vim.api.nvim_create_autocmd("ColorScheme", {
