@@ -375,7 +375,8 @@ return {
 		main = "ibl",
 		opts = {
 			indent = { char = "¦" },
-			scope = { show_start = false, show_end = false },
+			-- scope = { show_start = false, show_end = false },
+			scope = { enabled = false },
 			exclude = {
 				buftypes = {
 					"nofile",
@@ -672,6 +673,7 @@ return {
 	{
 		"gbprod/yanky.nvim",
 		dependencies = { "kkharji/sqlite.lua" },
+		event = "VeryLazy",
 		opts = {
 			ring = {
 				history_length = 100,
@@ -683,6 +685,11 @@ return {
 			},
 			system_clipboard = {
 				sync_with_ring = true,
+			},
+			highlight = {
+				on_put = true,
+				on_yank = true,
+				timer = 200,
 			},
 		},
 		keys = {

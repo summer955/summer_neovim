@@ -200,7 +200,7 @@ ins_left({
 		return icon .. " " .. compress_path(path)
 	end,
 	cond = conditions.buffer_not_empty,
-	color = { fg = colors.blue, gui = "bold" },
+	color = { fg = colors.grey, gui = "bold" },
 })
 
 ins_left({
@@ -220,21 +220,13 @@ ins_left({
 	end,
 })
 
-ins_right({
-	"filetype",
-	icons_enabled = true,
-	icon = nil,
-	colored = true,
-	color = { fg = colors.blue, gui = "bold" },
-})
-
-ins_right({
-	"encoding",
-	fmt = string.upper,
-	icon = "󰧮",
-	cond = conditions.hide_in_width,
-	color = { fg = colors.grey, gui = "bold" },
-})
+-- ins_right({
+-- 	"encoding",
+-- 	fmt = string.upper,
+-- 	icon = "󰧮",
+-- 	cond = conditions.hide_in_width,
+-- 	color = { fg = colors.grey, gui = "bold" },
+-- })
 
 -- ins_right({
 -- 	"fileformat",
@@ -266,13 +258,15 @@ ins_right({
 	color = { fg = colors.grey, gui = "bold" },
 })
 
--- git branch
 ins_right({
-	"branch",
-	icon = "",
-	color = { fg = colors.violet, gui = "bold" },
+	"filetype",
+	icons_enabled = true,
+	icon = nil,
+	colored = true,
+	color = { fg = colors.blue, gui = "bold" },
 })
 
+-- git diff
 ins_right({
 	"diff",
 	symbols = { added = " ", modified = " ", removed = " " },
@@ -283,14 +277,12 @@ ins_right({
 	},
 	cond = conditions.hide_in_width,
 })
-
--- ins_right({
--- 	function()
--- 		return "▊"
--- 	end,
--- 	color = { fg = colors.violet },
--- 	padding = { left = 1 },
--- })
+-- git branch
+ins_right({
+	"branch",
+	icon = "",
+	color = { fg = colors.violet, gui = "bold" },
+})
 
 ins_right({
 	function()
