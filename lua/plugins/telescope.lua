@@ -14,7 +14,14 @@ return {
 				defaults = {
 					layout_strategy = "horizontal",
 					sorting_strategy = "ascending",
-					layout_config = { prompt_position = "top" },
+					layout_config = {
+						horizontal = {
+							prompt_position = "top",
+							preview_width = 0.55,
+						},
+						width = 0.87,
+						height = 0.80,
+					},
 				},
 				extensions = {
 					fzf = {

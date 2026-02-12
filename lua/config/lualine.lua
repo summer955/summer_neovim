@@ -200,7 +200,7 @@ ins_left({
 		return icon .. " " .. compress_path(path)
 	end,
 	cond = conditions.buffer_not_empty,
-	color = { fg = colors.grey, gui = "bold" },
+	color = { fg = colors.grey, gui = "italic" },
 })
 
 ins_left({
@@ -252,12 +252,22 @@ ins_right({
 	function()
 		local current_line = vim.fn.line(".")
 		local total_lines = vim.fn.line("$")
+
+		if current_line == 1 then
+			return "󰉢 Top"
+		end
+
+		if current_line == total_lines then
+			return "󰉢 Bot"
+		end
+
 		local percentage = math.floor((current_line / total_lines) * 100)
 		return "󰉢 " .. percentage .. "%%"
 	end,
 	color = { fg = colors.grey, gui = "bold" },
 })
 
+--filetype
 ins_right({
 	"filetype",
 	icons_enabled = true,
