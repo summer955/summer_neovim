@@ -220,6 +220,27 @@ ins_left({
 	end,
 })
 
+ins_right({
+	function()
+		if not (package.loaded["noice"] and require("noice").api.status.command.has()) then
+			return ""
+		end
+		local cmd = require("noice").api.status.command.get()
+
+		-- 根据命令类型加不同图标
+		if cmd:sub(1, 1) == ":" then
+			return "󰹬 " .. "CMD" -- 命令行图标
+		elseif cmd:sub(1, 1) == "/" then
+			return "󰈞 " .. cmd -- 向前搜索图标
+		elseif cmd:sub(1, 1) == "?" then
+			return "󰈝 " .. cmd -- 向后搜索图标
+		end
+		return "󰞉 " .. cmd
+	end,
+	color = { fg = colors.grey, gui = "bold" },
+	padding = { right = 1 },
+})
+
 -- ins_right({
 -- 	"encoding",
 -- 	fmt = string.upper,

@@ -13,6 +13,7 @@ opt.mouse = "a" -- 启用鼠标
 opt.clipboard = "unnamedplus" -- 系统剪贴板
 opt.swapfile = false -- 不使用交换文件
 opt.undofile = true -- 启用撤销持久化
+opt.timeoutlen = 200
 
 -- 真彩色
 opt.termguicolors = true

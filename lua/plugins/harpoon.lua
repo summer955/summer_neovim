@@ -6,7 +6,7 @@ return {
 		require("harpoon").setup({})
 	end,
 	keys = {
-		{ "<leader>q", desc = "Select Harpoon Keys" },
+		{ "<leader>q", desc = "Select Harpoon file" },
 		{
 			"<leader>qa",
 			function()

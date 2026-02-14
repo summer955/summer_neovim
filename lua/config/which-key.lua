@@ -1,5 +1,28 @@
 local wk = require("which-key")
 
+wk.setup({
+	delay = 50,
+
+	win = {
+
+		no_overlap = true, -- 不与光标重叠
+		padding = { 1, 2 }, -- 窗口内边距
+		title = true,
+		title_pos = "center",
+		border = "rounded", -- 边框样式
+	},
+
+	icons = {
+		breadcrumb = "»",
+		separator = " ",
+		group = "󱉯 ",
+	},
+	plugins = {
+		marks = true,
+		registers = true,
+	},
+})
+
 wk.add({
 	{ "<F11>", "<cmd>UndotreeToggle<cr>", desc = "open UndoTree", mode = "n" },
 	{ "<leader><leader>", group = "<leader> Extension" },
