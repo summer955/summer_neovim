@@ -24,7 +24,7 @@ wk.setup({
 })
 
 wk.add({
-	{ "<F11>", "<cmd>UndotreeToggle<cr>", desc = "open UndoTree", mode = "n" },
+	{ "<F9>", "<cmd>UndotreeToggle<cr>", desc = "open UndoTree", mode = "n" },
 	{ "<leader><leader>", group = "<leader> Extension" },
 	{ "<leader>c", group = "Code Actions" },
 	{ "<leader>x", group = "Trouble List" },

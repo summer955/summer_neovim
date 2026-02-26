@@ -249,12 +249,16 @@ ins_right({
 -- 	color = { fg = colors.grey, gui = "bold" },
 -- })
 
--- ins_right({
--- 	"fileformat",
--- 	fmt = string.upper,
--- 	icons_enabled = false,
--- 	color = { fg = colors.grey, gui = "bold" },
--- })
+ins_right({
+	"fileformat",
+	fmt = string.upper,
+	icons = {
+		unix = "", -- LF
+		dos = "", -- CRLF
+		mac = "", -- CR
+	},
+	color = { fg = colors.grey, gui = "bold" },
+})
 
 -- location
 -- ins_right({ "location", color = { fg = colors.grey, gui = "bold" } })
