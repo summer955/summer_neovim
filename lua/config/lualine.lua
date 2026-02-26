@@ -167,6 +167,9 @@ ins_left({
 			return ""
 		end
 
+		-- 统一路径分隔符（Windows 兼容）
+		path = path:gsub("\\", "/")
+
 		-- 保留你的图标获取逻辑（完全不变）
 		local ft = vim.bo.filetype
 		local icon, _ = require("nvim-web-devicons").get_icon_by_filetype(ft)
