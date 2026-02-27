@@ -274,7 +274,7 @@ return {
 				"--display-style",
 				"quiet", -- quiet mode
 				"--config",
-				os.getenv("HOME") .. "/.config/selene-ignore.toml",
+				vim.fn.expand("~") .. "/.config/selene-ignore.toml",
 			}
 
 			vim.api.nvim_create_autocmd(

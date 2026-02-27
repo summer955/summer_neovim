@@ -4,7 +4,10 @@ return {
 		version = "*",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install",
+			},
 			-- extensions
 			{ "nvim-telescope/telescope-project.nvim" },
 			{ "nvim-telescope/telescope-frecency.nvim" },
