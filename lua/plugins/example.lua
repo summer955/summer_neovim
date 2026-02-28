@@ -757,7 +757,7 @@ return {
 					terminal_signcolumn = false, -- whether show signcolumn in terminal window
 					terminal_position = "horizontal", --# or "horizontal", to open as horizontal split instead of vertical split
 					-- terminal_width = 45, --# change the terminal display option width (if vertical)
-					terminal_height = 8, --# change the terminal display option height (if horizontal)
+					terminal_height = 5, --# change the terminal display option height (if horizontal)
 				},
 			})
 		end,
