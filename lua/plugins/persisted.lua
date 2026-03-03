@@ -57,7 +57,7 @@ return {
 		end
 
 		require("persisted").setup({
-			autosave = false, --  关闭自动保存
+			autosave = true, --  打开自动保存
 			save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"),
 			use_git_branch = true,
 			autoload = false,
