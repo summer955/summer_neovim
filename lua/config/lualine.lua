@@ -3,8 +3,11 @@
 -- Credit: glepnir
 local lualine = require("lualine")
 
+-- 使用全局状态栏
+vim.opt.laststatus = 3
+
 local colors = {
-	bg = "#202328",
+	bg = "#2b2b2b",
 	fg = "#c0caf5",
 	yellow = "#e0af68",
 	cyan = "#7dcfff",
@@ -38,10 +41,12 @@ local config = {
 	options = {
 		component_separators = "",
 		section_separators = "",
-		theme = {
-			normal = { c = { fg = colors.fg, bg = colors.bg } },
-			inactive = { c = { fg = colors.fg, bg = colors.bg } },
-		},
+		-- theme = {
+		-- 	normal = { c = { fg = colors.fg, bg = colors.bg } },
+		-- 	inactive = { c = { fg = colors.fg, bg = colors.bg } },
+		-- },
+		theme = "auto",
+		globalstatus = vim.o.laststatus == 3,
 		disabled_filetypes = {
 			statusline = { "dashboard", "snacks_dashboard" },
 		},

@@ -45,5 +45,5 @@ wk.add({
 		desc = "Buffer Local Keymaps (which-key)",
 	},
 	{ "<leader>ci", "<cmd>IBLToggle<cr>", desc = "Turn on code alignment guides", mode = "n" },
-	{ "<leader>cn", "<cmd>set number!<cr>", desc = "Toggle line numbers", mode = "n" },
+	-- { "<leader>cn", "<cmd>set number!<cr>", desc = "Toggle line numbers", mode = "n" },
 })

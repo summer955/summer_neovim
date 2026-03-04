@@ -8,6 +8,10 @@ opt.expandtab = true
 opt.smartindent = true
 opt.autoindent = true
 
+-- 显示行号
+vim.opt.number = true
+vim.opt.relativenumber = true
+
 -- 基本设置
 opt.mouse = "a" -- 启用鼠标
 opt.clipboard = "unnamedplus" -- 系统剪贴板
