@@ -6,6 +6,20 @@ require("mason-lspconfig").setup({
 	},
 })
 
+--  获取 blink.cmp 能力
+local capabilities = require("blink.cmp").get_lsp_capabilities({
+	textDocument = {
+		foldingRange = {
+			dynamicRegistration = false,
+			lineFoldingOnly = true,
+		},
+	},
+})
+
+vim.lsp.config.all = {
+	capabilities = capabilities,
+}
+
 -- lua
 vim.lsp.config("lua_ls", {
 	settings = {
