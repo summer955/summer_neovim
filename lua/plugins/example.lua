@@ -5,9 +5,7 @@ return {
 		priority = 1000,
 		opts = {
 			style = "moon",
-			-- on_colors = function(colors)
-			-- 	colors.bg = "#212121"
-			-- end,
+			integrations = { blink_cmp = true },
 		},
 		init = function()
 			vim.cmd.colorscheme("tokyonight-moon")
@@ -293,6 +291,7 @@ return {
 		dependencies = {
 			{ "mason-org/mason.nvim" },
 			"neovim/nvim-lspconfig",
+			{ "saghen/blink.cmp" },
 		},
 		event = "VeryLazy",
 		config = function()
@@ -306,52 +305,27 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			"hrsh7th/cmp-nvim-lsp",
 		},
 	},
-
 	-- 代码片段引擎
 	{
 		"L3MON4D3/LuaSnip",
-		build = "make install_jsregexp",
+		version = "v2.*", -- 使用稳定版本
+		build = "make install_jsregexp", -- 可选，如果需要
+		event = "InsertEnter",
 		dependencies = { "rafamadriz/friendly-snippets" },
 		opts = {
 			history = true,
 			delete_check_events = "TextChanged",
 			region_check_events = "CursorMoved",
 		},
-	},
-
-	-- 自动补全
-	{
-		"L3MON4D3/LuaSnip",
-		-- build = "make install_jsregexp", -- 必需构建
-		version = "v2.*",
-		event = "InsertEnter",
-		dependencies = {
-			"rafamadriz/friendly-snippets", -- 预定义片段库
-		},
-
-		config = function()
+		config = function(_, opts)
+			require("luasnip").setup(opts)
 			-- 加载 friendly-snippets
 			require("luasnip.loaders.from_vscode").lazy_load()
 		end,
 	},
-	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp", -- LSP 补全
-			"hrsh7th/cmp-buffer", -- 缓冲区补全
-			"hrsh7th/cmp-path", -- 路径补全
-			"hrsh7th/cmp-cmdline", -- 命令行补全
-			"saadparwaiz1/cmp_luasnip", -- LuaSnip 支持
-			"onsails/lspkind-nvim", -- 美化图标
-		},
-		config = function()
-			require("config.cmp")
-		end,
-	},
+	---
 	{
 		"HiPhish/rainbow-delimiters.nvim",
 		event = { "BufRead", "BufNewFile" },
@@ -796,5 +770,16 @@ return {
 		"j-hui/fidget.nvim",
 		event = "LspAttach",
 		opts = {},
+	},
+	{
+		"nvim-zh/colorful-winsep.nvim",
+		event = { "WinLeave" }, -- 建议的加载时机，进入其他窗口时加载
+		config = function()
+			require("colorful-winsep").setup({
+				-- 默认边框是 "bold"，你可以试试 "rounded" 或 "single"
+				border = "rounded",
+				highlight = nil,
+			})
+		end,
 	},
 }
