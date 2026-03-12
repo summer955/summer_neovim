@@ -8,7 +8,7 @@ return {
 			integrations = { blink_cmp = true },
 		},
 		init = function()
-			vim.cmd.colorscheme("tokyonight-moon")
+			vim.cmd.colorscheme("tokyonight")
 		end,
 	},
 	{
@@ -206,16 +206,16 @@ return {
 				"lua-language-server", -- lua_ls
 				"clangd", -- cpp
 				"pyright", --python
-				-- 请运行 "apt install openjdk-21-jdk"
-				"jdtls", -- java
+				"jdtls", -- java --需要jdk-21以上版本
 				"yaml-language-server", --yaml
+				"bash-language-server", --bash_ls
 
 				-- Formatter
 				"stylua", -- lua
 				"ruff", -- python
 				"clang-format", -- cpp
 				"google-java-format", --java
-				"shfmt", -- shell
+				"shfmt", --bash shell
 				"yamlfmt", --yaml
 
 				-- Linter
@@ -223,6 +223,7 @@ return {
 				"selene", -- lua
 				"cpplint", -- cpp
 				"yamllint", --yaml
+				"shellcheck", --bash
 			},
 		},
 		---@param opts MasonSettings | {ensure_installed: string[]}
@@ -265,8 +266,12 @@ return {
 				yaml = { "yamllint" },
 				yml = { "yamllint" },
 				dockercompose = { "yamllint" },
+				--shell
+				sh = { "shellcheck" }, -- 普通 shell 脚本
+				bash = { "shellcheck" }, -- bash 脚本
 			}
 
+			-- lua lint 设置
 			require("lint").linters.selene.args = {
 				"--display-style",
 				"quiet", -- quiet mode
@@ -274,6 +279,7 @@ return {
 				vim.fn.expand("~") .. "/.config/selene-ignore.toml",
 			}
 
+			-- 触发检查
 			vim.api.nvim_create_autocmd(
 				{ "BufWritePost", "BufReadPost", "InsertLeave", "TextChanged", "TextChangedI" },
 				{

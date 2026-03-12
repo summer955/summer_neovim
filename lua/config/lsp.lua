@@ -74,3 +74,13 @@ vim.lsp.config("yamlls", {
 		},
 	},
 })
+
+--Bash
+vim.lsp.config("bashls", {
+	cmd = { "bash-language-server", "start" },
+	settings = {
+		bashIde = {
+			globPattern = "*@(.sh|.inc|.bash|.command)",
+		},
+	},
+})
