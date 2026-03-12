@@ -12,6 +12,10 @@ opt.autoindent = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- 光标行高亮
+opt.cursorline = true
+opt.cursorlineopt = "number"
+
 -- 基本设置
 opt.mouse = "a" -- 启用鼠标
 opt.clipboard = "unnamedplus" -- 系统剪贴板

@@ -8,6 +8,7 @@ local function setup_diagnostics()
 	vim.diagnostic.config({
 		underline = true,
 		update_in_insert = false,
+		-- 注意，诊断功能的虚拟文本已经交给插件tiny-inline-diagnostic
 		virtual_text = {
 			spacing = 2,
 			source = "if_many",
@@ -44,7 +45,7 @@ local function setup_diagnostics()
 				min = vim.diagnostic.severity.WARN,
 			},
 		},
-
+		--
 		severity_sort = true,
 
 		-- 侧边栏图标
