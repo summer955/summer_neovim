@@ -752,6 +752,7 @@ return {
 			},
 		},
 	},
+	-- 代码注释生成
 	{
 		"danymat/neogen",
 		dependencies = {
@@ -772,6 +773,7 @@ return {
 		},
 		config = true,
 	},
+	-- lSP加载进度美化
 	{
 		"j-hui/fidget.nvim",
 		event = "LspAttach",
@@ -787,5 +789,16 @@ return {
 				highlight = nil,
 			})
 		end,
+	},
+	--- LSP变量重命名
+	{
+		"smjonas/inc-rename.nvim",
+		config = function()
+			vim.opt.inccommand = "split"
+			require("inc_rename").setup({})
+		end,
+		keys = {
+			{ "<leader>rn", ":IncRename ", desc = "Incremental Rename" },
+		},
 	},
 }
