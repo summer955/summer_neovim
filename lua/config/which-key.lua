@@ -1,7 +1,7 @@
 local wk = require("which-key")
 
 wk.setup({
-	delay = 50,
+	delay = 80,
 
 	win = {
 
@@ -37,6 +37,7 @@ wk.add({
 	{ "<leader>r", group = "Run or Refactor Code" },
 	{ "<leader>e", group = "Open File Explorer" },
 	{ "<leader>f", group = "Telescope Pickers" },
+	{ "<leader>rk", group = "Select kulala keys" },
 	{
 		"<leader>?",
 		function()

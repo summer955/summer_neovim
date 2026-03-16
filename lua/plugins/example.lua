@@ -95,8 +95,14 @@ return {
 			default_component_configs = {
 				git_status = {
 					symbols = {
-						unstaged = "U",
-						staged = "[✓]",
+						unstaged = "", -- 或 "M" (Modified)
+						staged = "✓", -- 或 "●"
+						added = "✚", -- 新增文件
+						modified = "", -- 修改文件
+						deleted = "", -- 删除文件
+						renamed = "", -- 重命名
+						untracked = "", -- 未跟踪
+						ignored = "", -- 忽略
 					},
 				},
 				indent = {
@@ -513,26 +519,12 @@ return {
 		end,
 	},
 	{
-		"nvim-pack/nvim-spectre",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		cmd = "Spectre",
-		keys = {
-			{ "<leader>cp", "<cmd>Spectre<CR>", desc = "Spectre Panel" },
-		},
-		config = function()
-			require("spectre").setup()
-		end,
-		lazy = true,
-	},
-	{
 		"MagicDuck/grug-far.nvim",
 		opts = { headerMaxWidth = 80 },
 		cmd = { "GrugFar", "GrugFarWithin" },
 		keys = {
 			{
-				"<leader>sr",
+				"<leader>cp",
 				function()
 					local grug = require("grug-far")
 					local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
@@ -799,6 +791,17 @@ return {
 		end,
 		keys = {
 			{ "<leader>rn", ":IncRename ", desc = "Incremental Rename" },
+		},
+	},
+	-- 给vim中发起http请求
+	{
+		"mistweaverco/kulala.nvim",
+		ft = { "http", "rest" },
+		opts = {},
+		keys = {
+			{ "<leader>rkr", "<cmd>lua require('kulala').run()<CR>", desc = "Run HTTP request" },
+			{ "<leader>rks", "<cmd>lua require('kulala').show_stats()<CR>", desc = "Show stats" },
+			{ "<leader>rkc", "<cmd>lua require('kulala').copy_curl()<CR>", desc = "Copy as curl" },
 		},
 	},
 }
