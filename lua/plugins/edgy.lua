@@ -16,13 +16,12 @@ return {
 						return not vim.b[buf].lazyterm_cmd
 					end,
 				},
-				{
-					ft = "noice",
-					size = { height = 0.4 },
-					filter = function(buf, win)
-						return vim.api.nvim_win_get_config(win).relative == ""
-					end,
-				},
+				-- {
+				-- 	ft = "noice",
+				-- 	filter = function(buf, win)
+				-- 		return vim.api.nvim_win_get_config(win).relative == ""
+				-- 	end,
+				-- },
 				"Trouble",
 				{ ft = "qf", title = "QuickFix" },
 				{
