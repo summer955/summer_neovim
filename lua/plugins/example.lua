@@ -840,6 +840,7 @@ return {
 			vim.g.loaded_netrwPlugin = 1
 		end,
 	},
+	-- 窗口顶部状态栏
 	{
 		"Bekaboo/dropbar.nvim",
 		event = { "LspAttach" },
