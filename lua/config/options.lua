@@ -18,6 +18,8 @@ opt.cursorlineopt = "number"
 
 -- 基本设置
 opt.mouse = "a" -- 启用鼠标
+opt.mousemoveevent = true -- 启用鼠标移动事件
+-- opt.mousefocus = true -- 鼠标聚焦窗口
 opt.clipboard = "unnamedplus" -- 系统剪贴板
 opt.swapfile = false -- 不使用交换文件
 opt.undofile = true -- 启用撤销持久化

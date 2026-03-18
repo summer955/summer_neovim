@@ -840,4 +840,59 @@ return {
 			vim.g.loaded_netrwPlugin = 1
 		end,
 	},
+	{
+		"Bekaboo/dropbar.nvim",
+		event = { "LspAttach" },
+		dependencies = {
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+		},
+		opts = {
+			bar = {
+				attach_events = {
+					"BufEnter",
+					"BufWinEnter",
+					"TermOpen",
+					"BufWritePost",
+					"FileType",
+					"LspAttach",
+				},
+			},
+			menu = {
+				preview = true, -- 关闭菜单预览
+			},
+			sources = {
+				path = {
+					max_depth = 4,
+					preview = false,
+				},
+			},
+		},
+		keys = {
+			{
+				"<Leader>;",
+				function()
+					require("dropbar.api").pick()
+				end,
+				desc = "Pick symbols",
+			},
+			{
+				"[;",
+				function()
+					require("dropbar.api").goto_context_start()
+				end,
+				desc = "Go to context start",
+			},
+			{
+				"];",
+				function()
+					require("dropbar.api").select_next_context()
+				end,
+				desc = "Select next context",
+			},
+		},
+		config = function(_, opts)
+			require("dropbar").setup(opts)
+		end,
+	},
 }

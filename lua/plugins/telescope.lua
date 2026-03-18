@@ -86,9 +86,16 @@ return {
 				desc = "search contents",
 			},
 			{
-				"<leader>fs",
+				"<leader>fS",
 				function()
 					require("telescope.builtin").grep_string()
+				end,
+				desc = "Search word at cursor",
+			},
+			{
+				"<leader>fs",
+				function()
+					require("telescope.builtin").lsp_document_symbols()
 				end,
 				desc = "Search word at cursor",
 			},
