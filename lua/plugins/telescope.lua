@@ -97,7 +97,7 @@ return {
 				function()
 					require("telescope.builtin").lsp_document_symbols()
 				end,
-				desc = "Search word at cursor",
+				desc = "Browse code symbols",
 			},
 			{
 				"<leader>fb",

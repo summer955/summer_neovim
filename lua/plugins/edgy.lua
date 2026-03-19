@@ -25,7 +25,7 @@ return {
 				{
 					ft = "trouble",
 					title = "󱖫 Trouble",
-					size = { height = 0.25 },
+					size = { height = 0.2 },
 				},
 				{
 					ft = "help",
@@ -85,6 +85,14 @@ return {
 					ft = "json.kulala_ui",
 					title = "API Response(kulala)",
 					size = { width = 0.35 },
+				},
+				{
+					title = "󰧭 Symbols",
+					ft = "aerial",
+					size = { width = 0.2 },
+					filter = function(buf)
+						return vim.bo[buf].filetype == "aerial"
+					end,
 				},
 			},
 			keys = {
