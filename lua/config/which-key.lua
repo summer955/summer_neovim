@@ -27,6 +27,7 @@ wk.add({
 	{ "<F9>", "<cmd>UndotreeToggle<cr>", desc = "open UndoTree", mode = "n" },
 	{ "<leader><leader>", group = "<leader> Extension" },
 	{ "<leader>c", group = "Code Actions" },
+	{ "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", desc = "Cd to current file directory", mode = "n" },
 	{ "<leader>x", group = "Trouble List" },
 	{ "<leader>h", group = "gitsigns Key" },
 	{ "<leader>b", group = "Bufferline" },

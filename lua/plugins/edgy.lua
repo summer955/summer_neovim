@@ -22,8 +22,11 @@ return {
 				-- 		return vim.api.nvim_win_get_config(win).relative == ""
 				-- 	end,
 				-- },
-				"Trouble",
-				{ ft = "qf", title = "QuickFix" },
+				{
+					ft = "trouble",
+					title = "󱖫 Trouble",
+					size = { height = 0.25 },
+				},
 				{
 					ft = "help",
 					size = { height = 0.3 },
@@ -42,7 +45,7 @@ return {
 					filter = function(buf)
 						return vim.b[buf].neo_tree_source == "filesystem"
 					end,
-					size = { height = 0.3 },
+					size = { height = 0.25 },
 				},
 				{
 					title = "Neo-Tree Git",

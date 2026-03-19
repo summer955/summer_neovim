@@ -843,7 +843,7 @@ return {
 	-- 窗口顶部状态栏
 	{
 		"Bekaboo/dropbar.nvim",
-		event = { "LspAttach" },
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
