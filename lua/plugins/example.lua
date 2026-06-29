@@ -212,7 +212,7 @@ return {
 				"lua-language-server", -- lua_ls
 				"clangd", -- cpp
 				"pyright", --python
-				"jdtls", -- java --需要jdk-21以上版本
+				-- "jdtls", -- java --需要jdk-21以上版本
 				"yaml-language-server", --yaml
 				"bash-language-server", --bash_ls
 
@@ -220,7 +220,7 @@ return {
 				"stylua", -- lua
 				"ruff", -- python
 				"clang-format", -- cpp
-				"google-java-format", --java
+				-- "google-java-format", --java
 				"shfmt", --bash shell
 				"yamlfmt", --yaml
 

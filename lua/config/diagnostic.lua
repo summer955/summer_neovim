@@ -69,13 +69,6 @@ local function setup_diagnostics()
 			end,
 		},
 	})
-
-	-- 美化其他 LSP 浮动窗口
-	local border_opts = { border = "rounded" }
-
-	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, border_opts)
-
-	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, border_opts)
 end
 
 setup_diagnostics()
