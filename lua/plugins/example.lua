@@ -146,44 +146,13 @@ return {
 			},
 		},
 	},
-	-- Treesitter
-	{
-		"nvim-treesitter/nvim-treesitter",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-		},
-		version = "*",
-		event = { "BufRead", "BufNewFile" },
-		build = ":TSUpdate",
-		config = function()
-			require("config.treesitter")
-		end,
-	},
-	{
-		"romgrk/nvim-treesitter-context",
-		event = { "BufRead", "BufNewFile" },
-		config = function()
-			require("treesitter-context").setup({
-				enable = true,
-				throttle = true,
-				max_lines = 0,
-				patterns = {
-					default = {
-						"class",
-						"function",
-						"method",
-					},
-				},
-			})
-		end,
-	},
-	{
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		event = { "BufRead", "BufNewFile" },
-	},
+	-- please see "treesitter.lua"
 	{
 		"numToStr/Comment.nvim",
 		event = { "BufRead", "BufNewFile" },
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
 		opts = function()
 			return {
 				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
