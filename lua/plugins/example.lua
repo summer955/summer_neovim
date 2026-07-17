@@ -865,4 +865,12 @@ return {
 			require("dropbar").setup(opts)
 		end,
 	},
+	--markdown
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		opts = {
+			file_types = { "markdown", "Avante" },
+		},
+		ft = { "markdown", "Avante" }, -- 打开这些文件类型时才加载
+	},
 }

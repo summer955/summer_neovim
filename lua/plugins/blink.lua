@@ -5,6 +5,9 @@ return {
 		"onsails/lspkind-nvim", -- 美化图标
 		"rafamadriz/friendly-snippets",
 		{ "L3MON4D3/LuaSnip", version = "v2.*" },
+		{
+			"Kaiser-Yang/blink-cmp-avante",
+		},
 	},
 	version = "1.*",
 	opts = {
@@ -70,8 +73,18 @@ return {
 
 		sources = {
 			-- compat = {}, -- 如果需要使用 nvim-cmp 的源
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "snippets", "buffer", "avante" },
 			providers = {
+				-- Avante 聊天补全源（仅在 Avante 存在时生效）
+				avante = {
+					module = "blink-cmp-avante",
+					name = "Avante",
+					score_offset = 2,
+					-- 确保 Avante 已安装且配置好时才加载此源
+					enabled = function()
+						return pcall(require, "avante")
+					end,
+				},
 				snippets = {
 					name = "LuaSnip",
 					--
