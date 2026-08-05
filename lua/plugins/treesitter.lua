@@ -98,15 +98,10 @@ return {
 				move.goto_previous_end("@function.outer")
 			end, { desc = "Prev function end" })
 
-			map("n", "]c", function()
-				move.goto_next_start("@class.outer")
-			end, { desc = "Next class start" })
+			-- 因此 class 导航仅保留 ]C 和 [C（class end）
 			map("n", "]C", function()
 				move.goto_next_end("@class.outer")
 			end, { desc = "Next class end" })
-			map("n", "[c", function()
-				move.goto_previous_start("@class.outer")
-			end, { desc = "Prev class start" })
 			map("n", "[C", function()
 				move.goto_previous_end("@class.outer")
 			end, { desc = "Prev class end" })

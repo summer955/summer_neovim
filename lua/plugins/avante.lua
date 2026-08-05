@@ -4,7 +4,7 @@ return {
 		or "make",
 	event = "VeryLazy",
 	opts = {
-		provider = "deepseek", -- 改成 DeepSeek
+		provider = "deepseek",
 		providers = {
 			deepseek = {
 				__inherited_from = "openai",
@@ -17,7 +17,6 @@ return {
 				},
 			},
 		},
-		-- 其他保持不变...
 	},
 	selection = {
 		hint_display = "none",

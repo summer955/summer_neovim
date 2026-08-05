@@ -8,44 +8,7 @@ local function setup_diagnostics()
 	vim.diagnostic.config({
 		underline = true,
 		update_in_insert = false,
-		-- 注意，诊断功能的虚拟文本已经交给插件tiny-inline-diagnostic
-		virtual_text = {
-			spacing = 2,
-			source = "if_many",
-			prefix = "•",
-
-			format = function(diagnostic)
-				local msg = diagnostic.message
-				msg = msg:gsub("\n", " ")
-				msg = msg:gsub("%s+", " ")
-
-				-- 简化常见消息
-				local simplifications = {
-					["cannot be resolved"] = "unresolved",
-					["The method .- is undefined"] = "undefined method",
-					["The value .- is not"] = "not",
-					["is never used"] = "unused",
-					["is never read"] = "unread",
-				}
-
-				for pattern, replacement in pairs(simplifications) do
-					msg = msg:gsub(pattern, replacement)
-				end
-
-				-- 限制长度
-				if #msg > 80 then
-					msg = msg:sub(1, 57) .. "..."
-				end
-
-				return msg
-			end,
-
-			-- 只显示错误和警告
-			severity = {
-				min = vim.diagnostic.severity.WARN,
-			},
-		},
-		--
+		-- 注意：virtual_text 已由插件 tiny-inline-diagnostic 管理
 		severity_sort = true,
 
 		-- 侧边栏图标
