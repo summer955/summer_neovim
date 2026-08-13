@@ -6,7 +6,7 @@ return {
 		config = function()
 			require("mason-nvim-dap").setup({
 				ensure_installed = {
-					"codelldb", -- C/C++/Rust
+					-- "codelldb", -- C/C++/Rust
 					"python", --debugpy
 					-- "bash-debug-adapter",
 					-- "chrome",
@@ -35,20 +35,20 @@ return {
 					end,
 
 					codelldb = function(config)
-						-- 直接使用默认适配器（假设 mason-nvim-dap 已注册）
-						config.configurations = {
-							{
-								name = "Launch file",
-								type = "codelldb", -- 必须与 mason-nvim-dap 注册的名称致
-								request = "launch",
-								program = function()
-									-- 提示用户输入可执行文件路径（默认当前目录）
-									return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-								end,
-								cwd = "${workspaceFolder}",
-							},
-						}
-						require("mason-nvim-dap").default_setup(config)
+						-- -- 直接使用默认适配器（假设 mason-nvim-dap 已注册）
+						-- config.configurations = {
+						-- 	{
+						-- 		name = "Launch file",
+						-- 		type = "codelldb", -- 必须与 mason-nvim-dap 注册的名称致
+						-- 		request = "launch",
+						-- 		program = function()
+						-- 			-- 提示用户输入可执行文件路径（默认当前目录）
+						-- 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+						-- 		end,
+						-- 		cwd = "${workspaceFolder}",
+						-- 	},
+						-- }
+						-- require("mason-nvim-dap").default_setup(config)
 					end,
 				},
 			})

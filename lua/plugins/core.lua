@@ -179,7 +179,7 @@ return {
 			ensure_installed = {
 				-- LSP server
 				"lua-language-server", -- lua_ls
-				"clangd", -- cpp
+				-- "clangd", -- cpp
 				"pyright", --python
 				-- "jdtls", -- java --需要jdk-21以上版本
 				"yaml-language-server", --yaml
@@ -188,7 +188,7 @@ return {
 				-- Formatter
 				"stylua", -- lua
 				"ruff", -- python
-				"clang-format", -- cpp
+				-- "clang-format", -- cpp
 				-- "google-java-format", --java
 				"shfmt", --bash shell
 				"yamlfmt", --yaml
@@ -196,7 +196,7 @@ return {
 				-- Linter
 				"flake8", -- python
 				"selene", -- lua
-				"cpplint", -- cpp
+				-- "cpplint", -- cpp
 				"yamllint", --yaml
 				"shellcheck", --bash
 			},
@@ -235,8 +235,8 @@ return {
 			require("lint").linters_by_ft = {
 				python = { "ruff" },
 				lua = { "selene" },
-				cpp = { "cpplint" },
-				c = { "cpplint" },
+				-- cpp = { "cpplint" },
+				-- c = { "cpplint" },
 				--yaml
 				yaml = { "yamllint" },
 				yml = { "yamllint" },
