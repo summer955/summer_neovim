@@ -36,7 +36,7 @@ return {
 		},
 		explorer = { enabled = false },
 		indent = { enabled = true },
-		input = { enabled = false },
+		input = { enabled = true },
 		picker = { enabled = true },
 		quickfile = { enabled = true },
 		scope = { enabled = true },
