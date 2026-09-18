@@ -3,7 +3,7 @@
 -- Credit: glepnir
 local lualine = require("lualine")
 
--- 使用全局状态栏
+-- lualine 即将接管状态栏时再启用全局状态栏
 vim.opt.laststatus = 3
 
 local colors = {
@@ -46,7 +46,7 @@ local config = {
 		-- 	inactive = { c = { fg = colors.fg, bg = colors.bg } },
 		-- },
 		theme = "auto",
-		globalstatus = vim.o.laststatus == 3,
+		globalstatus = true,
 		disabled_filetypes = {
 			statusline = { "dashboard", "snacks_dashboard" },
 		},

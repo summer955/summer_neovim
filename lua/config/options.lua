@@ -28,8 +28,8 @@ opt.timeoutlen = 200
 -- 真彩色
 opt.termguicolors = true
 
--- 使用 lualine 全局状态栏（与 edgy/lualine 保持一致）
-vim.opt.laststatus = 3
+-- lualine 加载前隐藏原生状态栏，避免启动时短暂闪现
+vim.opt.laststatus = 0
 vim.opt.ruler = false
 vim.opt.showmode = false
 
