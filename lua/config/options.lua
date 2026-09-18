@@ -75,3 +75,11 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		end, 50) -- 50ms 延迟
 	end,
 })
+
+--md文件美化
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.conceallevel = 2
+	end,
+})

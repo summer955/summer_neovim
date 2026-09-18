@@ -251,7 +251,7 @@ return {
 				"--display-style",
 				"quiet", -- quiet mode
 				"--config",
-				vim.fn.expand("~") .. "/.config/selene-ignore.toml",
+				vim.fn.stdpath("config") .. "/selene.toml",
 			}
 
 			-- 触发检查
@@ -666,7 +666,10 @@ return {
 				highlight_on_hover = true, -- 悬停高亮
 
 				-- 后端
-				backends = { "lsp", "treesitter" },
+				backends = {
+					markdown = { "markdown" },
+					_ = { "lsp", "treesitter", "markdown" },
+				},
 
 				-- 图标（使用 Nerd Font）
 				nerd_font = "auto",
