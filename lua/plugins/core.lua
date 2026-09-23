@@ -14,7 +14,6 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		lazy = false,
-		priority = 1001,
 		config = function()
 			require("config.lualine")
 		end,
