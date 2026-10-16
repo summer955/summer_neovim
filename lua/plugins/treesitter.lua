@@ -57,17 +57,30 @@ return {
 				end
 			end)
 
-			-- Enable Neovim 0.12.3's built-in tree-sitter highlighting
-			vim.api.nvim_create_autocmd({ "FileType" }, {
+			-- Enable Neovim's built-in tree-sitter highlighting. The plugin is lazy-loaded
+			-- on BufRead, so FileType may already have fired for the initial buffer.
+			local ignore_ft = { help = true, man = true, TelescopePrompt = true, ["neo-tree"] = true, dashboard = true }
+			local function start_treesitter(buf)
+				if not vim.api.nvim_buf_is_valid(buf) or ignore_ft[vim.bo[buf].filetype] then
+					return
+				end
+				pcall(vim.treesitter.start, buf)
+			end
+
+			vim.api.nvim_create_autocmd({ "BufEnter", "BufNewFile", "BufReadPost", "FileType" }, {
 				pattern = "*",
 				callback = function(args)
-					local ignore_ft = { "help", "man", "TelescopePrompt", "neo-tree", "dashboard" }
-					if vim.tbl_contains(ignore_ft, vim.bo[args.buf].filetype) then
-						return
-					end
-					pcall(vim.treesitter.start, args.buf)
+					start_treesitter(args.buf)
 				end,
 			})
+
+			-- Handle the buffer that caused nvim-treesitter to be lazy-loaded.
+			for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+				if vim.api.nvim_buf_is_loaded(buf) then
+					start_treesitter(buf)
+				end
+			end
+
 		end,
 	},
 	{
